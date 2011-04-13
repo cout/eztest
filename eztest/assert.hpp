@@ -9,6 +9,7 @@ namespace eztest
 
 extern size_t assertions;
 
+//! Helper function for ASSERT_EQUAL macro
 template<typename T, typename U>
 void assert_equal(
     T const & t,
@@ -29,6 +30,7 @@ void assert_equal(
   }
 }
 
+//! Helper function for ASSERT_NOT_EQUAL macro
 template<typename T, typename U>
 void assert_not_equal(
     T const & t,
@@ -51,6 +53,7 @@ void assert_not_equal(
 
 } // namespace eztest
 
+//! Throw an Assertion_Failed exception unless x==y
 #define ASSERT_EQUAL(x, y) \
 do \
 { \
@@ -58,6 +61,7 @@ do \
 assert_equal((x), (y), #x, #y, __FILE__, __LINE__); \
 } while(0)
 
+//! Throw an Assertion_Failed exception unless !(x==y)
 #define ASSERT_NOT_EQUAL(x, y) \
 do \
 { \
@@ -65,9 +69,22 @@ do \
 assert_not_equal((x), (y), #x, #y, __FILE__, __LINE__); \
 } while(0)
 
+//! Throw an Assertion_Failed exception unless x
 #define ASSERT(x) \
 ASSERT_EQUAL(true, !!x);
 
+//! Throw an Assertion_Failed exception unless code throws an exception
+/*! \param  type  C++ type of expected exception
+ *  \param  code  code which is expected to throw the exception
+ */
+#define ASSERT_EXCEPTION(type, code) \
+ASSERT_EXCEPTION_CHECK(type, code, )
+
+//! Throw an Assertion_Failed exception unless code throws an exception
+/*! \param  type  C++ type of expected exception
+ *  \param  code  code which is expected to throw the exception
+ *  \param  check_exception  code to validate the exception
+ */
 #define ASSERT_EXCEPTION_CHECK(type, code, check_exception) \
 try \
 { \
@@ -79,8 +96,5 @@ catch(type const & ex) \
 { \
 check_exception; \
 }
-
-#define ASSERT_EXCEPTION(type, code) \
-ASSERT_EXCEPTION_CHECK(type, code, )
 
 #endif // eztest__assert__hpp_

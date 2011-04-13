@@ -7,9 +7,17 @@
 namespace eztest
 {
 
+//! Abstraction for a test failure.
 class Failure
 {
 public:
+  //! Construct a new Failure object.
+  /*! \param  test_suite_name  name of the test suite in which the
+   *          failure occurred.
+   *  \param  test_case_name  name of the test case in which the
+   *          failure occurred.
+   *  \param  what  description of the failure
+   */
   Failure(
       std::string const & test_suite_name,
       std::string const & test_case_name,
