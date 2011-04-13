@@ -65,3 +65,16 @@ DEP_FILES=$(patsubst %.$(OBJEXT),%.d,$(OBJS))
 clean:
 	$(RM) $(TARGETS)
 
+# == Documentation ==
+
+.PHONY: docs
+
+all: docs
+
+docs:
+	doxygen
+
+docs-ps: docs
+	$(MAKE) -C doc/latex
+	dvips doc/latex/refman.dvi -o doc/latex/refman.ps
+
