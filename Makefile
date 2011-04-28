@@ -23,7 +23,7 @@ SOEXT = so
 
 TARGETS = \
   $(OBJS) \
-	libezio.$(SOEXT)
+	libeztest.$(SOEXT)
 
 all: $(TARGETS)
 
@@ -48,7 +48,7 @@ LDFLAGS += $(addprefix -l,$(LDLIBS))
 
 # == Rules for final targets ==
 
-libezio.$(SOEXT): $(OBJS)
+libeztest.$(SOEXT): $(OBJS)
 	$(CXX) -shared $(LDFLAGS) $(OBJS) -o $@
 
 # == Dependencies ==
