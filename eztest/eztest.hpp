@@ -50,12 +50,5 @@ int eztest_main();
 
 } // namespace eztest
 
-#ifndef EZTEST_NO_MAIN
-int main()
-{
-  return eztest::eztest_main();
-}
-#endif
-
 #endif // eztest__eztest__hpp_
 

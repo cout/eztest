@@ -28,6 +28,11 @@ Usage
     // ...
   }
 
+  int main()
+  {
+    eztest::eztest_main();
+  }
+
 Advantages
 -----------
 
@@ -39,4 +44,5 @@ Limitations
 
 * No inheritance of test suites
 * No way to hook into the test suite to override default behavior
+* Needs better UI
 
