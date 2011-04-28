@@ -61,14 +61,14 @@ void assert_not_equal(
 #define ASSERT_EQUAL(x, y) \
 do \
 { \
-assert_equal((x), (y), #x, #y, __FILE__, __LINE__); \
+::eztest::assert_equal((x), (y), #x, #y, __FILE__, __LINE__); \
 } while(0)
 
 //! Throw an Assertion_Failed exception unless !(x==y)
 #define ASSERT_NOT_EQUAL(x, y) \
 do \
 { \
-assert_not_equal((x), (y), #x, #y, __FILE__, __LINE__); \
+::eztest::assert_not_equal((x), (y), #x, #y, __FILE__, __LINE__); \
 } while(0)
 
 //! Throw an Assertion_Failed exception unless x
