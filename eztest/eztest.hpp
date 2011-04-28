@@ -20,7 +20,7 @@ struct UNIQUE_SUITE_NAME(testsuite_append, name) \
 { \
 UNIQUE_SUITE_NAME(testsuite_append, name)() \
 { \
-new_test_suite(#name); \
+::eztest::new_test_suite(#name); \
 } \
 } UNIQUE_SUITE_NAME(testsuite_append__initializer, name)
 
@@ -36,8 +36,8 @@ struct UNIQUE_SUITE_NAME(test_append, name) \
 { \
 UNIQUE_SUITE_NAME(test_append, name)() \
 { \
-test_suite().add_test_case( \
-Test_Case(#name, & UNIQUE_SUITE_NAME(test, name))); \
+::eztest::test_suite().add_test_case( \
+::eztest::Test_Case(#name, & UNIQUE_SUITE_NAME(test, name))); \
 } \ } UNIQUE_SUITE_NAME(test_append__initializer, name); \ } \
 \
 static void UNIQUE_SUITE_NAME(test, name)()

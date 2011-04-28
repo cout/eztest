@@ -19,6 +19,8 @@ void assert_equal(
     std::string const & file,
     size_t line)
 {
+  ++assertions;
+
   if(!is_equal(t, u))
   {
     std::stringstream strm;
@@ -40,6 +42,8 @@ void assert_not_equal(
     std::string const & file,
     size_t line)
 {
+  ++assertions;
+
   if(!is_not_equal(t, u))
   {
     std::stringstream strm;
@@ -57,7 +61,6 @@ void assert_not_equal(
 #define ASSERT_EQUAL(x, y) \
 do \
 { \
-++assertions; \
 assert_equal((x), (y), #x, #y, __FILE__, __LINE__); \
 } while(0)
 
@@ -65,7 +68,6 @@ assert_equal((x), (y), #x, #y, __FILE__, __LINE__); \
 #define ASSERT_NOT_EQUAL(x, y) \
 do \
 { \
-++assertions; \
 assert_not_equal((x), (y), #x, #y, __FILE__, __LINE__); \
 } while(0)
 
@@ -88,7 +90,6 @@ ASSERT_EXCEPTION_CHECK(type, code, )
 #define ASSERT_EXCEPTION_CHECK(type, code, check_exception) \
 try \
 { \
-++assertions; \
 code; \
 ASSERT(!"Expected exception"); \
 } \

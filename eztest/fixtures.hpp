@@ -10,7 +10,7 @@ struct UNIQUE_SUITE_NAME(fixture_append ## __ ## name, type) \
 { \
 UNIQUE_SUITE_NAME(fixture_append ## __ ## name, type)() \
 { \
-test_suite().type(UNIQUE_SUITE_NAME(fixture ## __ ## name, type)); \
+::eztest::test_suite().type(UNIQUE_SUITE_NAME(fixture ## __ ## name, type)); \
 } \
 } UNIQUE_SUITE_NAME(fixture_append__initializer ## __ ## name, type); \
 } \
