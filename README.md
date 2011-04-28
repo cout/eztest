@@ -4,6 +4,8 @@ eztest -- a simple unit testing framework for C++
 Usage
 -----
 
+  #include <eztest/eztest.hpp>
+
   TESTSUITE(name_of_test_suite);
 
   SETUP(name_of_test_suite)
