@@ -32,13 +32,17 @@ static void UNIQUE_SUITE_NAME(test, name)(); \
 \
 namespace \
 { \
-struct UNIQUE_SUITE_NAME(test_append, name) \
-{ \
-UNIQUE_SUITE_NAME(test_append, name)() \
-{ \
-::eztest::test_suite().add_test_case( \
-::eztest::Test_Case(#name, & UNIQUE_SUITE_NAME(test, name))); \
-} \ } UNIQUE_SUITE_NAME(test_append__initializer, name); \ } \
+  struct UNIQUE_SUITE_NAME(test_append, name) \
+  { \
+    UNIQUE_SUITE_NAME(test_append, name)() \
+    { \
+      ::eztest::test_suite().add_test_case( \
+        ::eztest::Test_Case( \
+            #name, \
+            & UNIQUE_SUITE_NAME(test, name))); \
+    } \
+  } UNIQUE_SUITE_NAME(test_append__initializer, name); \
+} /* namespace */\
 \
 static void UNIQUE_SUITE_NAME(test, name)()
 
