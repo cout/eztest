@@ -2,5 +2,5 @@
 .*.swp
 *.o
 *.d
-libezio.so
+libeztest.so
 doc/
