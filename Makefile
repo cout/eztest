@@ -9,7 +9,8 @@ all:
 CXX_SOURCES = \
 	eztest/Test_Suite.cpp \
 	eztest/eztest.cpp \
-	eztest/Failure.cpp
+	eztest/Failure.cpp \
+	eztest/assert.cpp \
 
 CXX_SOURCES += 
 

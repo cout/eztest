@@ -1,6 +1,8 @@
 #ifndef eztest__assert__hpp_
 #define eztest__assert__hpp_
 
+#include "Assertion_Failed.hpp"
+
 #include <sstream>
 #include <string>
 
@@ -28,7 +30,7 @@ void assert_equal(
       << s_t << " != " << s_u
       << " (" << t << " != " << u << ")"
       << " at " << file << ":" << line;
-    throw Assertion_Failed(strm.str());
+    throw ::eztest::Assertion_Failed(strm.str());
   }
 }
 
