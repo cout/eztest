@@ -9,12 +9,16 @@ namespace
   eztest::Test_Suite * last_test_suite;
 }
 
-eztest::Test_Suite & test_suite()
+eztest::Test_Suite &
+eztest::
+test_suite()
 {
   return *last_test_suite;
 }
 
-void new_test_suite(std::string const & name)
+void
+eztest::
+new_test_suite(std::string const & name)
 {
   eztest::test_suites()[name] = eztest::Test_Suite(name);
   last_test_suite = &eztest::test_suites()[name];
@@ -28,7 +32,8 @@ Test_Suite(std::string const & name)
 {
 }
 
-void eztest::Test_Suite::
+void
+eztest::Test_Suite::
 run(Test_Result & result)
 {
   for(Test_Cases::iterator it = test_cases_.begin(),
